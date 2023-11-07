@@ -1,12 +1,14 @@
+import { useState } from "react";
 import React from "react";
 
 function SearchBar(props) {
-    const search = () => {props.search()};
+    const [inputValue, setinputValue] = useState("")
+    const search = () => {props.search(inputValue)};
 
     return (
         <div className="inputArea" >
-            <input type="text" />
-            <button> Search </button>
+            <input type="text" onChange={(e) => {setinputValue(e.target.value)}}/>
+            <button onClick={search}> Search </button>
         </div>
     );
 }

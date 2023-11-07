@@ -6,12 +6,18 @@ function App() {
   const title = 'Dictionary';
   const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
-  const [quote, setQuote] = useState("")
+  const [word, setWord] = useState("");
 
-  async function results() {
-    const response = await fetch(url+"hello");
-    const jsonResponse = await response.json();
-    setQuote(jsonResponse.quote);
+
+  async function results(value) {
+    try {
+      const response = await fetch(url+value);
+      const jsonResponse = await response.json();
+      await setWord(jsonResponse.word);
+      await console.log(jsonResponse)
+    } catch {
+      
+    }
   }
 
   return (
@@ -19,7 +25,7 @@ function App() {
       <div className="content">
         <h1>{ title }</h1>
         <SearchBar search={results}/>
-        <h2> {quote} </h2>
+        <h2> {word} </h2>
       </div>
     </div>
   );
