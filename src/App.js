@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import SearchBar from './SearchBar';
 
 function App() {
+  const title = 'Dictionary';
+  const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+
+  const [quote, setQuote] = useState("")
+
+  async function results() {
+    const response = await fetch(url+"hello");
+    const jsonResponse = await response.json();
+    setQuote(jsonResponse.quote);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="content">
+        <h1>{ title }</h1>
+        <SearchBar search={results}/>
+        <h2> {quote} </h2>
+      </div>
     </div>
   );
+
 }
 
 export default App;
