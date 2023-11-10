@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.definition {
+  background-color: rgb(250, 192, 0);
+}
+
+.wordColour {
+  background-color: aquamarine;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
