@@ -29,8 +29,8 @@ function App() {
         <SearchBar search={results} />
         <h2 className='wordColour'>{word}</h2>
         {meanings.map((meaning, index) => (
-          <div key={index}>
-            <h3 className='definition'>{meaning.partOfSpeech}</h3>
+          <div className= 'wordCard' key={index}>
+            <h3 className='partOfSpeech'>{meaning.partOfSpeech}</h3>
             {meaning.definitions.map((definition, defIndex) => (
               <div key={defIndex} className='definition'>
                 <p>Definition: {definition.definition}</p>
