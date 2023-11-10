@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SearchBar from './SearchBar';
 
 function App() {
-  const title = 'Dictionary';
+  const title = 'DICTIONARY';
   const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
   const [word, setWord] = useState("");
@@ -25,8 +25,10 @@ function App() {
   return (
     <div className="App">
       <div className="content">
-        <h1>{title}</h1>
-        <SearchBar search={results} />
+        <div className="">
+          <h1 className="Title">{title}</h1>
+          <SearchBar search={results} />
+        </div>
         <h2 className='wordColour'>{word}</h2>
         {meanings.map((meaning, index) => (
           <div className= 'wordCard' key={index}>
